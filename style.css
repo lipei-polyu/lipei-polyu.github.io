@@ -1,0 +1,231 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --primary-color: #2c3e50; /* 深蓝灰 */
+    --accent-color: #b71c1c;  /* PolyU 红 */
+    --text-color: #4a4a4a;
+    --light-bg: #fcfcfc;
+    --sidebar-width: 280px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    line-height: 1.7;
+    display: flex;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* === 左侧栏设计 === */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: #fff;
+    border-right: 1px solid #eaeaea;
+    position: fixed;
+    height: 100%;
+    padding: 40px 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 100;
+    text-align: center;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 3px solid #fff;
+}
+
+.sidebar-info h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #000;
+    margin: 0 0 5px 0;
+}
+
+.sidebar-info h3 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #666;
+    margin: 0 0 20px 0;
+}
+
+.contact-list {
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+    color: #555;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.contact-list p {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    word-break: break-all;
+}
+
+.contact-list i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    min-width: 15px;
+}
+
+/* 侧边导航栏 */
+.side-nav {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    text-align: left;
+}
+
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-nav li {
+    margin-bottom: 10px;
+}
+
+.side-nav a {
+    display: block;
+    font-weight: 500;
+    color: #777;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.side-nav a:hover {
+    background-color: #f4f4f4;
+    color: var(--primary-color);
+}
+
+.side-nav a.active {
+    color: var(--accent-color);
+    font-weight: 600;
+    background-color: #fff5f5; /* 淡红背景 */
+}
+
+/* === 右侧主内容 === */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    padding: 60px 80px;
+    max-width: 900px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #222;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+h2:first-of-type {
+    margin-top: 0;
+}
+
+.intro-text {
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* 列表通用样式 */
+ul.styled-list {
+    list-style: none;
+    padding: 0;
+}
+
+li.list-item {
+    margin-bottom: 20px;
+}
+
+/* 论文样式 */
+.paper-title {
+    font-weight: 600;
+    color: #000;
+    display: block;
+}
+.paper-author {
+    color: #444;
+    font-size: 0.95rem;
+}
+.paper-journal {
+    font-style: italic;
+    color: var(--accent-color);
+    font-size: 0.95rem;
+}
+
+/* 获奖与时间轴样式 */
+.award-item, .timeline-item {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.year-badge {
+    min-width: 120px;
+    font-weight: bold;
+    color: var(--accent-color);
+    font-family: 'Inter', sans-serif;
+}
+
+.content-block strong {
+    display: block;
+    color: #222;
+    font-size: 1.05rem;
+}
+
+.content-block span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 移动端适配 */
+@media (max-width: 850px) {
+    body { flex-direction: column; }
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #eaeaea;
+        padding: 30px 20px;
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 30px 20px;
+    }
+    .side-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .side-nav li { margin: 5px 10px; }
+    .contact-list { text-align: center; padding-left: 0; }
+    .contact-list p { justify-content: center; }
+}
